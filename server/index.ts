@@ -1,6 +1,6 @@
 import * as express from "express";
 import * as path from "path";
-const serverRenderer = require('./server');
+import { serverRenderer } from './server';
 
 let app = express();
 let server;

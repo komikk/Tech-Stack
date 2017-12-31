@@ -1,6 +1,7 @@
 import * as path from "path";
 import * as express from "express";
-module.exports = function serverRenderer() {
+
+export const serverRenderer = () => {
     return (req: express.Request, res: express.Response, next: express.NextFunction) => {
         res.set("Content-Type", "text/html")
             .status(200)
@@ -15,7 +16,7 @@ const renderFullPage = () => {
     <head>
         <meta charset="utf-8">
         <meta name=viewport content="width=device-width, initial-scale=1">
-        <title>Webpack Hot Middleware Example</title>
+        <title>Tech-Stack</title>
     </head>
     <body>
     <div id="app">
