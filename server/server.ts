@@ -1,7 +1,7 @@
 import * as path from "path";
 import * as express from "express";
 
-export const serverRenderer = () => {
+const serverRenderer = ({ clientStats, serverStats, foo }) => {
     return (req: express.Request, res: express.Response, next: express.NextFunction) => {
         res.set("Content-Type", "text/html")
             .status(200)
@@ -29,6 +29,7 @@ const renderFullPage = () => {
     <script src="static/bundle.js"></script>
     </body>
     </html>`;
-
 };
+
+export default serverRenderer;
 
