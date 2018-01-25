@@ -19,6 +19,8 @@ app.use("/static", express.static(staticPath));
 
 
 if (process.env.NODE_ENV === "development") {
+    // the same instance of webpack is used for client and server watch functionality
+    // It probably causes multiple building of client in case of server change.
     const webpack = require("webpack")
     const webpackClientConfig = require("../webpack.client.config").default
     const webpackDevMiddleware = require("webpack-dev-middleware");
