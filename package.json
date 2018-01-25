@@ -10,7 +10,7 @@
     "build-server": "tsc webpack.server.config.ts --outDir ./dist && webpack --config ./dist/webpack.server.config.js --display-error-details",
     "build-server:watch": "tsc webpack.server.config.ts --outDir ./dist && webpack --watch --config ./dist/webpack.server.config.js --display-error-details",
     "clean": "rm -rf dist",
-    "start:dev": "set NODE_ENV=development&& nodemon ./dist/server/index.js --ignore dist/server/static",
+    "cbsw:dev": "set NODE_ENV=development&& npm run build && concurrently \"npm run build-server:watch\" \"nodemon ./dist/server/index.js --ignore dist/server/static\"",
     "start": "node ./dist/server/index.js"
   },
   "author": "",
@@ -21,6 +21,7 @@
   "devDependencies": {
     "@types/express": "^4.0.35",
     "awesome-typescript-loader": "3.1.2",
+    "concurrently": "^3.5.1",
     "nodemon": "^1.14.11",
     "source-map-loader": "^0.2.1",
     "typescript": "2.2.2",

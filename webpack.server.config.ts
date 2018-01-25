@@ -41,10 +41,6 @@ const webpackConfig: webpack.Configuration =
             fs: 'empty',
             net: 'empty',
             tls: 'empty'
-        },
-        watchOptions: {
-            aggregateTimeout: 3500,
-            poll: 1000
         }
     };
 

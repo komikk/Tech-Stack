@@ -63,7 +63,7 @@ const renderFullPage = () => {
     <head>
         <meta charset="utf-8">
         <meta name=viewport content="width=device-width, initial-scale=1">
-        <title>Tech-Stackrr</title>
+        <title>Tech-Stack</title>
     </head>
     <body>
     <div id="app">
