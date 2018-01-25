@@ -5,11 +5,13 @@
   "main": " ./dist/server/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm run clean && tsc webpack.config.ts --outDir ./dist && npm run webpack",
+    "build": "npm run clean && npm run build-server && npm run build-client",
+    "build-client": "tsc webpack.client.config.ts --outDir ./dist && webpack --config ./dist/webpack.client.config.js --display-error-details",
+    "build-server": "tsc webpack.server.config.ts --outDir ./dist && webpack --config ./dist/webpack.server.config.js --display-error-details",
+    "build-server:watch": "tsc webpack.server.config.ts --outDir ./dist && webpack --watch --config ./dist/webpack.server.config.js --display-error-details",
     "clean": "rm -rf dist",
-    "start:dev": "set NODE_ENV=development&& npm run start",
-    "start": "node ./dist/server/index.js",
-    "webpack": "./node_modules/.bin/webpack --config ./dist/webpack.config.js --display-error-details"
+    "start:dev": "set NODE_ENV=development&& nodemon ./dist/server/index.js --ignore dist/server/static",
+    "start": "node ./dist/server/index.js"
   },
   "author": "",
   "license": "ISC",
@@ -19,12 +21,12 @@
   "devDependencies": {
     "@types/express": "^4.0.35",
     "awesome-typescript-loader": "3.1.2",
+    "nodemon": "^1.14.11",
     "source-map-loader": "^0.2.1",
     "typescript": "2.2.2",
     "webpack": "^3.4.1",
     "webpack-dev-middleware": "^1.12.0",
     "webpack-hot-middleware": "^2.20.0",
-    "webpack-hot-server-middleware": "^0.3.1",
     "webpack-node-externals": "1.6.0"
   }
 }
